@@ -3,11 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_ume_kit_channel_monitor/src/core/ume_binary_messenger.dart';
 
 class ChannelBinding extends WidgetsFlutterBinding {
-  static WidgetsBinding? ensureInitialized() {
-    if (WidgetsBinding.instance == null) {
-      // make sure init this before WidgetsFlutterBinding ensureInitialized called
-      ChannelBinding();
-    }
+  static WidgetsBinding ensureInitialized() {
     return WidgetsBinding.instance;
   }
 

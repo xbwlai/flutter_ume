@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_ume_kit_dio/flutter_ume_kit_dio.dart';
 import 'package:flutter_ume_kit_channel_monitor/flutter_ume_kit_channel_monitor.dart';
 
-final Dio dio = Dio()..options = BaseOptions(connectTimeout: 10000);
+final Dio dio = Dio()..options = BaseOptions(connectTimeout: const Duration(seconds: 10));
 
 final navigatorKey = GlobalKey<NavigatorState>();
 

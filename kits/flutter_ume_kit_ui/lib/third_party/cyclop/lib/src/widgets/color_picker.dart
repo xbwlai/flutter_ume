@@ -24,6 +24,19 @@ const pickerSize = Size(pickerWidth, pickerHeight);
 ///
 /// Customisable with a [ColorPickerConfig]
 class ColorPicker extends StatefulWidget {
+
+  const ColorPicker({
+    required this.onColorSelected,
+    required this.selectedColor,
+    required this.config,
+    required this.onClose,
+    this.onEyeDropper,
+    this.onKeyboard,
+    this.onSwatchesUpdate,
+    this.swatches = const {},
+    this.darkMode = false,
+    Key? key,
+  }) : super(key: key);
   final Color selectedColor;
 
   /// custom swatches library
@@ -47,19 +60,6 @@ class ColorPicker extends StatefulWidget {
   final VoidCallback onClose;
 
   final VoidCallback? onKeyboard;
-
-  const ColorPicker({
-    required this.onColorSelected,
-    required this.selectedColor,
-    required this.config,
-    required this.onClose,
-    this.onEyeDropper,
-    this.onKeyboard,
-    this.onSwatchesUpdate,
-    this.swatches = const {},
-    this.darkMode = false,
-    Key? key,
-  }) : super(key: key);
 
   @override
   _ColorPickerState createState() => _ColorPickerState();

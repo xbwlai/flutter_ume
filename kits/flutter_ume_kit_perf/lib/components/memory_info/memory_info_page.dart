@@ -204,14 +204,14 @@ class _MemoryWidgetState extends State<_MemoryWidget> {
 typedef _DropState = void Function(int, bool);
 
 class _DropButton extends StatefulWidget {
-  _DropButton(
-      {Key? key,
-      this.showArrow = false,
-      this.descending = true,
-      required this.title,
-      this.index = 0,
-      this.stateChanged})
-      : super(key: key);
+  _DropButton({
+    Key? key,
+    this.showArrow = false,
+    this.descending = true,
+    required this.title,
+    this.index = 0,
+    this.stateChanged,
+  }) : super(key: key);
 
   final bool showArrow;
   final bool descending;
@@ -289,10 +289,7 @@ class _PerRow extends StatelessWidget {
 }
 
 class _MemoryDetail extends StatefulWidget {
-  _MemoryDetail({Key? key, required this.detail, required this.service})
-      : assert(service != null),
-        assert(detail != null),
-        super(key: key);
+  _MemoryDetail({Key? key, required this.detail, required this.service}) : super(key: key);
 
   final _DetailModel detail;
 

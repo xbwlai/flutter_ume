@@ -171,7 +171,7 @@ class ShowCodeState extends State<ShowCode> with WidgetsBindingObserver {
                         pageInfoHelper
                             .getCodeListByKeyword(value)
                             .then((codeList) {
-                          if (codeList != null && codeList.isNotEmpty) {
+                          if (codeList.isNotEmpty) {
                             showCodeList = true;
                             _codeList = codeList;
                           } else {

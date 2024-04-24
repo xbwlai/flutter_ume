@@ -1,4 +1,4 @@
-name: byte_live_demo
+name: flutter_ume
 
 packages:
   - kits/flutter_ume_kit_*
