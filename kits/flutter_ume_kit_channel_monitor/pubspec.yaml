@@ -1,6 +1,6 @@
 name: flutter_ume_kit_channel_monitor
 description: channel monitor kit for flutter_ume
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/bytedance/flutter_ume
 
 environment:
