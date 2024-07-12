@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_ume/core/ui/dragable_widget.dart';
+import 'package:flutter_ume/core/ui/draggable_widget.dart';
 
 void main() {
   group('DragableWidget', () {
     testWidgets('constructor, drag widget, longpress and up', (tester) async {
       int moveCount = 0;
 
-      final redDot = DragableGridView(
+      final redDot = DraggableGridView(
         ['TestA', 'TestB'],
         childAspectRatio: 0.85,
         canAccept: (oldIndex, newIndex) {

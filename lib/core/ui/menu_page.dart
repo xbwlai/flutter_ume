@@ -4,12 +4,11 @@ import 'package:flutter_ume/core/pluggable_message_service.dart';
 import 'package:flutter_ume/core/red_dot.dart';
 import 'package:flutter_ume/core/store_manager.dart';
 import 'package:flutter_ume/flutter_ume.dart';
-import 'dragable_widget.dart';
+import 'draggable_widget.dart';
 import 'package:flutter_ume/core/ui/panel_action_define.dart';
 
 class MenuPage extends StatefulWidget {
-  MenuPage({Key? key, this.action, this.minimalAction, this.closeAction})
-      : super(key: key);
+  MenuPage({Key? key, this.action, this.minimalAction, this.closeAction}) : super(key: key);
 
   final MenuAction? action;
   final MinimalAction? minimalAction;
@@ -19,11 +18,10 @@ class MenuPage extends StatefulWidget {
   _MenuPageState createState() => _MenuPageState();
 }
 
-class _MenuPageState extends State<MenuPage>
-    with SingleTickerProviderStateMixin {
+class _MenuPageState extends State<MenuPage> with SingleTickerProviderStateMixin {
   PluginStoreManager _storeManager = PluginStoreManager();
 
-  List<Pluggable?> _dataList = [];
+  List<Pluggable> _dataList = [];
 
   @override
   void initState() {
@@ -32,7 +30,7 @@ class _MenuPageState extends State<MenuPage>
   }
 
   void _handleData() async {
-    List<Pluggable?> dataList = [];
+    List<Pluggable> dataList = [];
     List<String>? list = await _storeManager.fetchStorePlugins();
     if (list == null || list.isEmpty) {
       dataList = PluginManager.instance.pluginsMap.values.toList();
@@ -40,12 +38,12 @@ class _MenuPageState extends State<MenuPage>
       list.forEach((f) {
         bool contain = PluginManager.instance.pluginsMap.containsKey(f);
         if (contain) {
-          dataList.add(PluginManager.instance.pluginsMap[f]);
+          dataList.add(PluginManager.instance.pluginsMap[f]!);
         }
       });
       PluginManager.instance.pluginsMap.keys.forEach((key) {
         if (!list.contains(key)) {
-          dataList.add(PluginManager.instance.pluginsMap[key]);
+          dataList.add(PluginManager.instance.pluginsMap[key]!);
         }
       });
     }
@@ -76,7 +74,6 @@ class _MenuPageState extends State<MenuPage>
           children: <Widget>[
             Container(
               color: Colors.white,
-              height: 100,
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.bottomLeft,
               padding: const EdgeInsets.only(left: 16, right: 16),
@@ -88,62 +85,63 @@ class _MenuPageState extends State<MenuPage>
                   Row(
                     children: [
                       InkWell(
-                          onTap: () {
-                            if (widget.closeAction != null) {
-                              widget.closeAction!();
-                            }
-                          },
-                          child: const CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Color(0xffff5a52),
-                          )),
-                      const SizedBox(
-                        width: 8,
+                        onTap: () => widget.closeAction?.call(),
+                        child: const CircleAvatar(
+                          radius: 10,
+                          backgroundColor: Color(0xffff5a52),
+                        ),
                       ),
+                      const SizedBox(width: 8),
                       InkWell(
-                          onTap: () {
-                            if (widget.minimalAction != null) {
-                              widget.minimalAction!();
-                            }
-                          },
-                          child: const CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Color(0xffe6c029),
-                          )),
+                        onTap: () {
+                          if (widget.minimalAction != null) {
+                            widget.minimalAction!();
+                          }
+                        },
+                        child: const CircleAvatar(
+                          radius: 10,
+                          backgroundColor: Color(0xffe6c029),
+                        ),
+                      ),
                     ],
                   ),
                   Container(
-                      child: Text('UME',
-                          style: const TextStyle(
-                              fontSize: 60,
-                              fontWeight: FontWeight.w800,
-                              color: Color(0xff454545)))),
+                    child: Text(
+                      'UME',
+                      style: const TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xff454545),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             Expanded(
-                child: _dataList.isEmpty
-                    ? _EmptyPlaceholder()
-                    : DragableGridView(
-                        _dataList,
-                        childAspectRatio: 0.85,
-                        canAccept: (oldIndex, newIndex) {
-                          return true;
-                        },
-                        dragCompletion: (dataList) {
-                          _saveData(dataList as List<Pluggable?>);
-                        },
-                        itemBuilder: (context, dynamic data) {
-                          return GestureDetector(
-                            onTap: () {
-                              widget.action!(data);
-                              PluggableMessageService().resetCounter(data);
-                            },
-                            behavior: HitTestBehavior.opaque,
-                            child: _MenuCell(pluginData: data),
-                          );
-                        },
-                      ))
+              child: _dataList.isEmpty
+                  ? _EmptyPlaceholder()
+                  : DraggableGridView(
+                      _dataList,
+                      childAspectRatio: 0.85,
+                      canAccept: (oldIndex, newIndex) {
+                        return true;
+                      },
+                      dragCompletion: (dataList) {
+                        _saveData(dataList as List<Pluggable?>);
+                      },
+                      itemBuilder: (context, dynamic data) {
+                        return GestureDetector(
+                          onTap: () {
+                            widget.action!(data);
+                            PluggableMessageService().resetCounter(data);
+                          },
+                          behavior: HitTestBehavior.opaque,
+                          child: _MenuCell(pluginData: data),
+                        );
+                      },
+                    ),
+            ),
           ],
         ),
       ),
@@ -178,45 +176,30 @@ class _MenuCell extends StatelessWidget {
               Positioned(
                   left: 0,
                   top: 0,
-                  child: Container(
-                      height: constraints.maxHeight,
-                      width: 0.5,
-                      color: lineColor)),
+                  child: Container(height: constraints.maxHeight, width: 0.5, color: lineColor)),
               Positioned(
                   left: 0,
                   top: 0,
-                  child: Container(
-                      height: 0.5,
-                      width: constraints.maxWidth,
-                      color: lineColor)),
+                  child: Container(height: 0.5, width: constraints.maxWidth, color: lineColor)),
               Positioned(
                   top: 0,
                   right: 0,
-                  child: Container(
-                      height: constraints.maxHeight,
-                      width: 0.5,
-                      color: lineColor)),
+                  child: Container(height: constraints.maxHeight, width: 0.5, color: lineColor)),
               Positioned(
                   bottom: 0,
                   left: 0,
-                  child: Container(
-                      height: 0.5,
-                      width: constraints.maxWidth,
-                      color: lineColor)),
+                  child: Container(height: 0.5, width: constraints.maxWidth, color: lineColor)),
               Container(
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Container(
-                        child: IconCache.icon(pluggableInfo: pluginData!),
-                        height: 40,
-                        width: 40),
+                        child: IconCache.icon(pluggableInfo: pluginData!), height: 40, width: 40),
                     Container(
                         margin: const EdgeInsets.only(top: 25),
                         child: Text(pluginData!.displayName,
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.black)))
+                            style: const TextStyle(fontSize: 15, color: Colors.black)))
                   ],
                 ),
               ),

@@ -6,7 +6,7 @@ typedef DragCompletion<T> = void Function(List<T?>? data);
 
 typedef DataWidgetBuilder<T> = Widget Function(BuildContext context, T data);
 
-class DragableGridView<T> extends StatefulWidget {
+class DraggableGridView<T> extends StatefulWidget {
   final DataWidgetBuilder<T> itemBuilder;
   final CanAccept canAccept;
   final List<T> dataList;
@@ -15,7 +15,7 @@ class DragableGridView<T> extends StatefulWidget {
   final double childAspectRatio;
   final DragCompletion? dragCompletion;
 
-  DragableGridView(
+  DraggableGridView(
     this.dataList, {
     Key? key,
     this.scrollDirection = Axis.vertical,
@@ -27,10 +27,10 @@ class DragableGridView<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _DragableGridViewState<T>();
+  State<StatefulWidget> createState() => _DraggableGridViewState<T>();
 }
 
-class _DragableGridViewState<T> extends State<DragableGridView> {
+class _DraggableGridViewState<T> extends State<DraggableGridView> {
   List<T?>? dataList;
   late List<T?> dataListBackup;
   bool showItemWhenCovered = false;

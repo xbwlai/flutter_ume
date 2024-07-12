@@ -1,14 +1,17 @@
+import 'dart:collection';
+
 import 'package:flutter_ume/flutter_ume.dart';
 import 'package:flutter_ume/core/pluggable.dart';
 
 class PluginManager {
   static PluginManager? _instance;
 
-  Map<String, Pluggable?> get pluginsMap => _pluginsMap;
+  Map<String, Pluggable> get pluginsMap => _pluginsMap;
 
-  Map<String, Pluggable?> _pluginsMap = {};
+  final _pluginsMap = LinkedHashMap<String, Pluggable>();
 
   Pluggable? _activatedPluggable;
+
   String? get activatedPluggableName => _activatedPluggable?.name;
 
   static PluginManager get instance {
