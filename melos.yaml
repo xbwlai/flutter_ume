@@ -7,6 +7,9 @@ packages:
   - .
 
 command:
+  version:
+    branch: master
+    updateGitTagRefs: true
   bootstrap:
     usePubspecOverrides: true
     runPubGetInParallel: false
