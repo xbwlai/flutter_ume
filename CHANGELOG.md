@@ -16,6 +16,46 @@ Packages with breaking changes:
 Packages with other changes:
 
  - [`flutter_ume` - `v1.1.5`](#flutter_ume---v115)
+ - [`flutter_ume_kit_channel_monitor` - `v0.0.3+1`](#flutter_ume_kit_channel_monitor---v0031)
+ - [`flutter_ume_kit_perf` - `v1.1.2`](#flutter_ume_kit_perf---v112)
+ - [`flutter_ume_kit_console` - `v1.2.2`](#flutter_ume_kit_console---v122)
+ - [`flutter_ume_kit_dio` - `v1.2.2`](#flutter_ume_kit_dio---v122)
+ - [`flutter_ume_kit_device` - `v1.1.2`](#flutter_ume_kit_device---v112)
+ - [`flutter_ume_kit_show_code` - `v1.1.2`](#flutter_ume_kit_show_code---v112)
+ - [`flutter_ume_kit_ui` - `v1.2.2`](#flutter_ume_kit_ui---v122)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_ume_kit_channel_monitor` - `v0.0.3+1`
+ - `flutter_ume_kit_perf` - `v1.1.2`
+ - `flutter_ume_kit_console` - `v1.2.2`
+ - `flutter_ume_kit_dio` - `v1.2.2`
+ - `flutter_ume_kit_device` - `v1.1.2`
+ - `flutter_ume_kit_show_code` - `v1.1.2`
+ - `flutter_ume_kit_ui` - `v1.2.2`
+
+---
+
+#### `flutter_ume` - `v1.1.5`
+
+ - **FIX**: Fix some warnings, pluginMap change to linkedhashmap.
+
+
+## 2024-07-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_ume` - `v1.1.5`](#flutter_ume---v115)
  - [`flutter_ume_kit_perf` - `v1.1.2`](#flutter_ume_kit_perf---v112)
  - [`flutter_ume_kit_dio` - `v1.2.2`](#flutter_ume_kit_dio---v122)
  - [`flutter_ume_kit_console` - `v1.2.2`](#flutter_ume_kit_console---v122)
