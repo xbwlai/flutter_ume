@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-08-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_ume` - `v1.2.0`](#flutter_ume---v120)
+ - [`flutter_ume_kit_dio` - `v1.3.0`](#flutter_ume_kit_dio---v130)
+ - [`flutter_ume_kit_ui` - `v1.2.3`](#flutter_ume_kit_ui---v123)
+ - [`flutter_ume_kit_device` - `v1.1.3`](#flutter_ume_kit_device---v113)
+ - [`flutter_ume_kit_perf` - `v1.1.3`](#flutter_ume_kit_perf---v113)
+ - [`flutter_ume_kit_console` - `v1.2.3`](#flutter_ume_kit_console---v123)
+ - [`flutter_ume_kit_show_code` - `v1.1.3`](#flutter_ume_kit_show_code---v113)
+ - [`flutter_ume_kit_channel_monitor` - `v0.0.3+2`](#flutter_ume_kit_channel_monitor---v0032)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_ume_kit_ui` - `v1.2.3`
+ - `flutter_ume_kit_device` - `v1.1.3`
+ - `flutter_ume_kit_perf` - `v1.1.3`
+ - `flutter_ume_kit_console` - `v1.2.3`
+ - `flutter_ume_kit_show_code` - `v1.1.3`
+ - `flutter_ume_kit_channel_monitor` - `v0.0.3+2`
+
+---
+
+#### `flutter_ume` - `v1.2.0`
+
+ - **FEAT**(dio): Add copy url as curl in dio kit.
+
+#### `flutter_ume_kit_dio` - `v1.3.0`
+
+ - **FEAT**(dio): Add copy url as curl in dio kit.
+
+## 1.2.0
+
+ - **FEAT**(dio): Add copy url as curl in dio kit.
+
+
 ## 2024-07-12
 
 ### Changes

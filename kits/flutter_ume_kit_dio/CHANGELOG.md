@@ -1,3 +1,7 @@
+## 1.3.0
+
+ - **FEAT**(dio): Add copy url as curl in dio kit.
+
 ## 1.2.2
 
  - Update a dependency to the latest release.
