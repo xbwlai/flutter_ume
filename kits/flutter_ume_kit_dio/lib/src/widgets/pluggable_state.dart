@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 
 import '../constants/extensions.dart';
 import '../instances.dart';
@@ -308,6 +309,18 @@ class _ResponseCardState extends State<_ResponseCard> {
         const SizedBox(width: 6),
         Text('${_duration.inMilliseconds}ms'),
         const Spacer(),
+        TextButton(
+          onPressed: () {
+            final curl = _cURLRepresentation(_request);
+            Clipboard.setData(ClipboardData(text: curl));
+            print('curl: $curl');
+          },
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+            minimumSize: Size.zero,
+          ),
+          child: Text('Curl'),
+        ),
         _detailButton(context),
       ],
     );
@@ -346,6 +359,33 @@ class _ResponseCardState extends State<_ResponseCard> {
         );
       },
     );
+  }
+
+  String _cURLRepresentation(RequestOptions options) {
+    List<String> components = ['curl -i'];
+    if (options.method.toUpperCase() != 'GET') {
+      components.add('-X ${options.method}');
+    }
+
+    options.headers.forEach((k, v) {
+      if (k != 'Cookie') {
+        components.add('-H "$k: $v"');
+      }
+    });
+
+    if (options.data != null) {
+      // FormData can't be JSON-serialized, so keep only their fields attributes
+      if (options.data is FormData) {
+        options.data = Map.fromEntries(options.data.fields);
+      }
+
+      final data = json.encode(options.data).replaceAll('"', '\\"');
+      components.add('-d "$data"');
+    }
+
+    components.add('"${options.uri.toString()}"');
+
+    return components.join(' \\\n\t');
   }
 
   @override
