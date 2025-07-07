@@ -1,3 +1,7 @@
+## 1.2.4
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
 ## 1.2.3
 
  - Update a dependency to the latest release.

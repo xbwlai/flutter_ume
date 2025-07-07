@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-07-07
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_ume` - `v1.2.1`](#flutter_ume---v121)
+ - [`flutter_ume_kit_dio` - `v1.3.1`](#flutter_ume_kit_dio---v131)
+ - [`flutter_ume_kit_perf` - `v1.1.4`](#flutter_ume_kit_perf---v114)
+ - [`flutter_ume_kit_show_code` - `v1.1.4`](#flutter_ume_kit_show_code---v114)
+ - [`flutter_ume_kit_ui` - `v1.2.4`](#flutter_ume_kit_ui---v124)
+ - [`flutter_ume_kit_console` - `v1.2.4`](#flutter_ume_kit_console---v124)
+ - [`flutter_ume_kit_channel_monitor` - `v0.0.3+3`](#flutter_ume_kit_channel_monitor---v0033)
+ - [`flutter_ume_kit_device` - `v1.1.4`](#flutter_ume_kit_device---v114)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_ume_kit_console` - `v1.2.4`
+ - `flutter_ume_kit_channel_monitor` - `v0.0.3+3`
+ - `flutter_ume_kit_device` - `v1.1.4`
+
+---
+
+#### `flutter_ume` - `v1.2.1`
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+#### `flutter_ume_kit_dio` - `v1.3.1`
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+#### `flutter_ume_kit_perf` - `v1.1.4`
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+#### `flutter_ume_kit_show_code` - `v1.1.4`
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+#### `flutter_ume_kit_ui` - `v1.2.4`
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+## 1.2.1
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
+
 ## 2024-08-30
 
 ### Changes

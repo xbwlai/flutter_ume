@@ -1,3 +1,7 @@
+## 1.3.1
+
+ - **REFACTOR**(deps): adapt to Flutter 3.24.5.
+
 ## 1.3.0
 
  - **FEAT**(dio): Add copy url as curl in dio kit.
