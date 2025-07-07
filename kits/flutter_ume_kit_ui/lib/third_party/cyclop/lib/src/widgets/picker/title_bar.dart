@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import '../../theme.dart';
 
 class MainTitle extends StatelessWidget {
-  final VoidCallback? onClose;
 
   const MainTitle({Key? key, this.onClose}) : super(key: key);
+
+  final VoidCallback? onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class MainTitle extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               Labels.mainTitle,
-              style: textTheme.subtitle2,
+              style: textTheme.titleMedium,
             ),
           ),
           onClose != null

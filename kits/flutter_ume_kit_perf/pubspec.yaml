@@ -15,7 +15,7 @@ dependencies:
       url: git@github.com:xbwlai/flutter_ume.git
       ref: flutter_ume-v1.2.0
 
-  vm_service: ^9.4.0
+  vm_service: ">=9.4.0 <15.0.0"
 
 dev_dependencies:
   flutter_test:

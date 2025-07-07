@@ -21,7 +21,7 @@ dependencies:
   flutter_ume_kit_channel_monitor: 0.0.3+2
 
 dependency_overrides:
-  vm_service: ^9.4.0
+  vm_service: ">=9.4.0 <15.0.0"
   flutter_ume:
     path: ../
 

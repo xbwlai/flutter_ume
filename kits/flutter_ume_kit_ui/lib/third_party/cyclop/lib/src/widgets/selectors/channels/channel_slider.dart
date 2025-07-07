@@ -15,6 +15,15 @@ ThemeData _sliderTheme(Color color, List<Color> colors) =>
     );
 
 class ChannelSlider extends StatelessWidget {
+  const ChannelSlider({
+    required this.selectedColor,
+    required this.colors,
+    required this.channelValueGetter,
+    required this.onChange,
+    required this.label,
+    required this.labelGetter,
+    Key? key,
+  }) : super(key: key);
   final Color selectedColor;
 
   final List<Color> colors;
@@ -26,16 +35,6 @@ class ChannelSlider extends StatelessWidget {
   final ChannelValueGetter channelValueGetter;
 
   final ValueLabelGetter labelGetter;
-
-  const ChannelSlider({
-    required this.selectedColor,
-    required this.colors,
-    required this.channelValueGetter,
-    required this.onChange,
-    required this.label,
-    required this.labelGetter,
-    Key? key,
-  }) : super(key: key);
 
   double get channelValue => channelValueGetter(selectedColor);
 
@@ -51,7 +50,7 @@ class ChannelSlider extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: Text(label, style: textTheme.subtitle2),
+            child: Text(label, style: textTheme.titleMedium),
           ),
           Row(
             mainAxisSize: MainAxisSize.max,
@@ -79,7 +78,7 @@ class ChannelSlider extends StatelessWidget {
                 child: Text(
                   labelGetter(selectedColor),
                   textAlign: TextAlign.center,
-                  style: textTheme.bodyText1,
+                  style: textTheme.bodyLarge,
                 ),
               )
             ],
@@ -91,10 +90,10 @@ class ChannelSlider extends StatelessWidget {
 }
 
 class ChannelSliderTrack extends SliderTrackShape with BaseSliderTrackShape {
+  const ChannelSliderTrack(this.selectedColor, this.colors);
+
   final Color selectedColor;
   final List<Color> colors;
-
-  const ChannelSliderTrack(this.selectedColor, this.colors);
 
   @override
   void paint(
