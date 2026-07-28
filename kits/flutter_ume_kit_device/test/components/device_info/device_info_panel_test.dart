@@ -21,9 +21,9 @@ void main() {
       expect(imageProvider, isNotNull);
     });
     setUp(() {
-      MethodChannel('plugins.flutter.io/device_info')
+      MethodChannel('dev.fluttercommunity.plus/device_info')
           .setMockMethodCallHandler((call) {
-        if (call.method == 'getIosDeviceInfo') {
+        if (call.method == 'getDeviceInfo') {
           return Future.value({
             'name': 'data.name',
             'systemName': 'data.systemName',
@@ -32,21 +32,22 @@ void main() {
             'localizedModel': 'data.localizedModel',
             'identifierForVendor': 'data.identifierForVendor',
             'isPhysicalDevice': 'data.isPhysicalDevice',
-            'utsname.sysname': 'data.utsname.sysname',
-            'utsname.nodename': 'data.utsname.nodename',
-            'utsname.release': 'data.utsname.release',
-            'utsname.version': 'data.utsname.version',
-            'utsname.machine': 'data.utsname.machine',
-          });
-        } else if (call.method == 'getAndroidDeviceInfo') {
-          return Future.value({
-            'version.securityPatch': 'build.version.securityPatch',
-            'version.sdkInt': 'build.version.sdkInt',
-            'version.release': 'build.version.release',
-            'version.previewSdkInt': 'build.version.previewSdkInt',
-            'version.incremental': 'build.version.incremental',
-            'version.codename': 'build.version.codename',
-            'version.baseOS': 'build.version.baseOS',
+            'utsname': {
+              'sysname': 'data.utsname.sysname',
+              'nodename': 'data.utsname.nodename',
+              'release': 'data.utsname.release',
+              'version': 'data.utsname.version',
+              'machine': 'data.utsname.machine',
+            },
+            'version': {
+              'securityPatch': 'build.version.securityPatch',
+              'sdkInt': 33,
+              'release': 'build.version.release',
+              'previewSdkInt': 0,
+              'incremental': 'build.version.incremental',
+              'codename': 'build.version.codename',
+              'baseOS': 'build.version.baseOS',
+            },
             'board': 'build.board',
             'bootloader': 'build.bootloader',
             'brand': 'build.brand',
@@ -65,7 +66,9 @@ void main() {
             'tags': 'build.tags',
             'type': 'build.type',
             'isPhysicalDevice': false,
-            'androidId': 'build.androidId'
+            'systemFeatures': <String>[],
+            'serialNumber': 'build.serialNumber',
+            'isLowRamDevice': false,
           });
         } else {
           return Future.value({});
@@ -74,7 +77,7 @@ void main() {
     });
 
     tearDown(() {
-      MethodChannel('plugins.flutter.io/device_info')
+      MethodChannel('dev.fluttercommunity.plus/device_info')
           .setMockMethodCallHandler(null);
     });
     testWidgets('DeviceInfoPanel pump widget, Android', (tester) async {
