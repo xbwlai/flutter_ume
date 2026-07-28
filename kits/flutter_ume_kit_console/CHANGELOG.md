@@ -1,3 +1,7 @@
+## 1.2.5
+
+ - **FIX**(flutter_ume_kit_console): 兼容 Flutter 3.38 分享插件.
+
 ## 1.2.4
 
  - Update a dependency to the latest release.

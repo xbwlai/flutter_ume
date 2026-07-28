@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-07-29
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_ume_kit_console` - `v1.2.5`](#flutter_ume_kit_console---v125)
+ - [`flutter_ume_kit_device` - `v1.1.5`](#flutter_ume_kit_device---v115)
+
+---
+
+#### `flutter_ume_kit_console` - `v1.2.5`
+
+ - **FIX**(flutter_ume_kit_console): 兼容 Flutter 3.38 分享插件.
+
+#### `flutter_ume_kit_device` - `v1.1.5`
+
+ - **FIX**(flutter_ume_kit_device): 兼容 Flutter 3.38 设备信息插件.
+
+
 ## 2025-07-07
 
 ### Changes

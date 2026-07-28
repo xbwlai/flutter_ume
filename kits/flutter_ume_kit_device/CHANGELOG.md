@@ -1,3 +1,7 @@
+## 1.1.5
+
+ - **FIX**(flutter_ume_kit_device): 兼容 Flutter 3.38 设备信息插件.
+
 ## 1.1.4
 
  - Update a dependency to the latest release.

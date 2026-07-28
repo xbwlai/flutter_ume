@@ -1,6 +1,6 @@
 name: flutter_ume_kit_device
 description: Device info kit for flutter_ume.
-version: 1.1.4
+version: 1.1.5
 homepage: https://github.com/bytedance/flutter_ume
 
 environment:
